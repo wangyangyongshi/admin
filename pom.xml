@@ -8,6 +8,7 @@
     <artifactId>admin</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <profiles>
     <profile>
         <id>jdk-1.8</id>
         <activation>
@@ -46,4 +47,5 @@
             </pluginRepository>
         </pluginRepositories>
     </profile>
+    </profiles>
 </project>
