@@ -30,6 +30,7 @@ public class CurrentLimiting {
                         latch.await();
                         // 计数器加1，并判断最大请求数量
                         System.out.println(atomicLong.getAndIncrement());
+                        System.out.println("======================="+atomicLong);
                         if (atomicLong.getAndIncrement() > limit) {
                             System.out.println(t + "线程：限流了");
                             return;
