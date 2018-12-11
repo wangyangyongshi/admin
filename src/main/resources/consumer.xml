@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+    <dubbo:application name="order-service-consumer"></dubbo:application>
+
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"></dubbo:registry>
+
+    <!-- 声明需要调用的远程服务的接口(生成远程代理服务)-->
+    <dubbo:reference interface="CurrentLimiting" id="userService"></dubbo:reference>
+
+
+    <!-- 连接监控中心，监控monitor(一种自动发现，一种是直连)-->
+    <dubbo:monitor protocol="registry"></dubbo:monitor>
+    <dubbo:monitor address="127.0.0.1:7070"></dubbo:monitor>
+
+</beans>
