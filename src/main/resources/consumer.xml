@@ -9,7 +9,8 @@
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"></dubbo:registry>
 
     <!-- 声明需要调用的远程服务的接口(生成远程代理服务)-->
-    <dubbo:reference interface="CurrentLimiting" id="userService" check="false">
+    <!--retries="3"重试次数-->
+    <dubbo:reference interface="CurrentLimiting" id="userService" check="false" retries="3">
 
         <!--明确指定一个方法的超时时间-->
         <dubbo:method name="afa" timeout="3000"></dubbo:method>
